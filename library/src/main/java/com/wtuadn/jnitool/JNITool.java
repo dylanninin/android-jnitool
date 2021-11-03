@@ -4,15 +4,20 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.util.Log;
 
 /**
  * Created by wtuadn on 2017/3/9.
  */
 
 public class JNITool {
-    static {
+
+    public static void initialize(Context context) {
         System.loadLibrary("jni_tool");
+        jniinitialize(context);
     }
+
+    private static native void jniinitialize(Context context);
 
     private static native String jniencrypt(byte[] bytes);
 

@@ -11,9 +11,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "jnidemo";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // NOTE: Do initialize before calling any methods
+        JNITool.initialize(this);
 
         Log.e(TAG, "signature：" + JNITool.getSignature(this));
 
